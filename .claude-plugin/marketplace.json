@@ -14,6 +14,15 @@
       "category": "scaffolding",
       "tags": ["power-apps", "sharepoint", "react", "typescript", "vite", "tailwind", "power-platform"],
       "homepage": "https://github.com/Krupesh9/ClaudeSkills/tree/main/powerapps-codeapp-setup"
+    },
+    {
+      "name": "the-honest-astrologer",
+      "source": "./the-honest-astrologer-skill",
+      "version": "3.0.0",
+      "description": "Senior Vedic astrologer with grounded, plain-language readings. Birth chart visuals in Western / North Indian / South Indian / Chinese zodiac styles. Full kundali matching (Ashtakoota + Manglik + Dasha). Reality-check section ends every reading.",
+      "category": "advisor",
+      "tags": ["astrology", "vedic", "kundali", "birth-chart", "compatibility", "chinese-zodiac"],
+      "homepage": "https://github.com/Krupesh9/ClaudeSkills/tree/main/the-honest-astrologer-skill"
     }
   ]
 }

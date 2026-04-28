@@ -52,27 +52,31 @@ Scaffold a complete, deployable Power Apps Code App from a short interactive int
 
 ---
 
-### the-honest-astrologer (skill, plugin packaging in progress)
+### the-honest-astrologer
 
-Acts as a senior Vedic astrologer with 50+ years of experience giving grounded, plain-language readings on career, wealth, love, marriage, family, health, and education. Generates production-quality birth chart visuals in four styles (Western circular, North Indian diamond, South Indian square, Chinese zodiac), supports compatibility checking between two people, and exports readings as PDF reports.
+A senior Vedic astrologer with 50+ years of grounded, plain-language wisdom. Generates birth chart visuals in four styles (Western circular, North Indian diamond, South Indian square, Chinese zodiac), runs full kundali matching (Ashtakoota + Manglik + Dasha + planetary friendship), and ends every reading with a reality-check section so you can verify it against your real life. Refuses medical, legal, crisis, and harm-related questions.
 
-![The Honest Astrologer preview](the-honest-astrologer-skill/the-honest-astrologer-preview.png)
+![The Honest Astrologer preview](the-honest-astrologer-skill/skills/the-honest-astrologer/the-honest-astrologer-preview.png)
 
 **Sample chart outputs:**
 
-- [Western circular](the-honest-astrologer-skill/examples/sample-chart-western.png)
-- [North Indian diamond](the-honest-astrologer-skill/examples/sample-chart-north-indian.png)
-- [South Indian square](the-honest-astrologer-skill/examples/sample-chart-south-indian.png)
-- [Chinese zodiac](the-honest-astrologer-skill/examples/sample-chart-chinese-zodiac.png)
+- [Western circular](the-honest-astrologer-skill/skills/the-honest-astrologer/examples/sample-chart-western.png)
+- [North Indian diamond](the-honest-astrologer-skill/skills/the-honest-astrologer/examples/sample-chart-north-indian.png)
+- [South Indian square](the-honest-astrologer-skill/skills/the-honest-astrologer/examples/sample-chart-south-indian.png)
+- [Chinese zodiac](the-honest-astrologer-skill/skills/the-honest-astrologer/examples/sample-chart-chinese-zodiac.png)
 
-[→ Open the skill](the-honest-astrologer-skill/)
-
-For now, install manually:
+**Two ways to use it:**
 
 ```bash
-git clone https://github.com/Krupesh9/ClaudeSkills.git
-cp -r ClaudeSkills/the-honest-astrologer-skill ~/.claude/skills/
+# Option A — Install as a plugin (full chart computation + PNG/PDF rendering)
+/plugin install the-honest-astrologer@claudeskills
+
+# Option B — Just paste a prompt (zero install, works in Gemini Gem / Claude Project / ChatGPT / any LLM)
 ```
+
+→ [PROMPT.md](the-honest-astrologer-skill/PROMPT.md) has copy-paste prompts for Gemini Gem, Claude Project, ChatGPT Custom GPT, Claude Code, and generic LLMs.
+
+[→ Open the plugin](the-honest-astrologer-skill/)
 
 **Triggers on:** astrology reading, kundali analysis, birth chart, horoscope, marriage compatibility, kundali matching, Chinese zodiac.
 
@@ -97,10 +101,16 @@ ClaudeSkills/
 │           ├── templates/
 │           ├── checklists/
 │           └── examples/
-├── the-honest-astrologer-skill/      # Standalone skill (not yet plugin-packaged)
-│   ├── SKILL.md
-│   ├── examples/
-│   └── scripts/
+├── the-honest-astrologer-skill/      # Plugin folder
+│   ├── .claude-plugin/
+│   │   └── plugin.json
+│   ├── README.md                     # Install + overview
+│   ├── PROMPT.md                     # Copy-paste prompts (no install required)
+│   └── skills/
+│       └── the-honest-astrologer/
+│           ├── SKILL.md
+│           ├── examples/             # Sample chart outputs
+│           └── scripts/              # Python: compute_chart, chart_renderer, compatibility
 ├── README.md                         # This file
 └── LICENSE
 ```
@@ -112,12 +122,16 @@ For environments without the plugin manager, copy any skill folder into your ski
 ```bash
 git clone https://github.com/Krupesh9/ClaudeSkills.git
 
-# Plugin-packaged skill (note the nested skills/ folder)
+# Both plugins follow the same nested skills/ layout
 cp -r ClaudeSkills/powerapps-codeapp-setup/skills/powerapps-codeapp-setup ~/.claude/skills/
-
-# Standalone skill
-cp -r ClaudeSkills/the-honest-astrologer-skill ~/.claude/skills/
+cp -r ClaudeSkills/the-honest-astrologer-skill/skills/the-honest-astrologer ~/.claude/skills/
 ```
+
+## No-install option (the-honest-astrologer only)
+
+Some skills are pure persona / instructions and have no scripts to run — those work great as paste-in prompts for any LLM. The astrologer skill ships [PROMPT.md](the-honest-astrologer-skill/PROMPT.md) with ready-to-go versions for **Gemini Gem**, **Claude Project**, **ChatGPT Custom GPT**, **Claude Code one-shot**, and **generic LLMs**. Open the file, copy the block, paste into your tool's instructions field.
+
+The PowerApps plugin needs the install path — its templates and scripts can't be copy-pasted into a chat.
 
 ## Contributing
 
