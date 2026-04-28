@@ -1,0 +1,15 @@
+# Distribution archives
+#dist/
+#*.skill
+#*.skill.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Node / build
+node_modules/
+*.log
