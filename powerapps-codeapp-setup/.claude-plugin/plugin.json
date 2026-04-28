@@ -1,0 +1,24 @@
+{
+  "name": "powerapps-codeapp-setup",
+  "version": "1.0.0",
+  "description": "Scaffold a complete, deployable Power Apps Code App from a short interactive intake. Generates the full React + TypeScript + Vite + Tailwind skeleton, wires up SharePoint / Office 365 Users / Outlook connectors, and walks the user through pac auth -> npm run setup -> npm run connect -> npm run push. Encodes the silent-failure gotchas around SharePoint Choice and Person field writes.",
+  "author": {
+    "name": "Krupesh Patel",
+    "url": "https://github.com/Krupesh9"
+  },
+  "homepage": "https://github.com/Krupesh9/ClaudeSkills",
+  "repository": "https://github.com/Krupesh9/ClaudeSkills",
+  "license": "MIT",
+  "keywords": [
+    "power-apps",
+    "code-app",
+    "sharepoint",
+    "react",
+    "typescript",
+    "vite",
+    "tailwind",
+    "power-platform",
+    "scaffold",
+    "setup"
+  ]
+}

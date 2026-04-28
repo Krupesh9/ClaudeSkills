@@ -1,0 +1,19 @@
+{
+  "name": "claudeskills",
+  "owner": {
+    "name": "Krupesh Patel",
+    "url": "https://github.com/Krupesh9"
+  },
+  "description": "A small marketplace of Claude Code plugins built around real production workflows. Currently ships powerapps-codeapp-setup (Power Apps Code App scaffolding) with more to come.",
+  "plugins": [
+    {
+      "name": "powerapps-codeapp-setup",
+      "source": "./powerapps-codeapp-setup",
+      "version": "1.0.0",
+      "description": "Scaffold and deploy Power Apps Code Apps (React + TypeScript + Vite + Tailwind) with SharePoint / Office 365 Users / Outlook connectors. Encodes the silent-failure gotchas around SharePoint Choice and Person field writes.",
+      "category": "scaffolding",
+      "tags": ["power-apps", "sharepoint", "react", "typescript", "vite", "tailwind", "power-platform"],
+      "homepage": "https://github.com/Krupesh9/ClaudeSkills/tree/main/powerapps-codeapp-setup"
+    }
+  ]
+}
