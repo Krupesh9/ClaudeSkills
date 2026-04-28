@@ -14,14 +14,39 @@ When you invoke `/setup` (or ask Claude to "build me a Power Apps code app", "sc
 
 The skill is opinionated. It encodes the patterns from real production Code Apps (App Inventory Tracker, Approval Tracker) and the silent-failure gotchas around SharePoint Choice and Person field writes that cost real engineering hours to discover.
 
+## The `npm run connect` magic
+
+The flagship feature: a smart auto-connect script that discovers Power Platform connections via `pac connection list`, prompts you to pick one per connector, runs `npx power-apps add-data-source` for every list and resource you defined, and writes the connection IDs back to `.env`.
+
+![npm run connect flow](examples/npm%20run%20connect%20flow.png)
+
+The result — every connection ID populated in `.env`, ready to build and push:
+
+![Connection config in .env](examples/ConnectionConfig.png)
+
+## What you can build with this skill
+
+Two real production apps shipped at Hunt Oil, both scaffolded with these patterns:
+
+### Approval Tracker — parent-child lists, People Picker, email notifications
+
+![Approval Tracker dashboard](examples/ApprovalApp-Dashboard.png)
+
+### App Inventory — interactive donut filters, card grid, KPI stats
+
+![App Inventory dashboard](examples/PowerApp-AppInventory.png)
+
+> **Reference repo:** [github.com/Krupesh9/CodeApps](https://github.com/Krupesh9/CodeApps) — the source of truth for these apps. The templates in this skill are direct extractions from there.
+
 ## Files
 
-| File | Purpose |
-|---|---|
-| `SKILL.md` | The skill itself — workflow, intake, key patterns |
-| `BLUEPRINT.md` | Deep reference: SP field types, write gotchas, multi-list patterns |
-| `templates/` | Drop-in project files (config, services, hooks, components, scripts) |
-| `checklists/` | Phase checklists (new project, people picker, notifications, deep linking, parent-child, env promotion) |
+| File           | Purpose                                                                                                 |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| `SKILL.md`     | The skill itself — workflow, intake, key patterns                                                       |
+| `BLUEPRINT.md` | Deep reference: SP field types, write gotchas, multi-list patterns                                      |
+| `templates/`   | Drop-in project files (config, services, hooks, components, scripts)                                    |
+| `checklists/`  | Phase checklists (new project, people picker, notifications, deep linking, parent-child, env promotion) |
+| `examples/`    | Screenshots from the reference apps                                                                     |
 
 ## Installation
 

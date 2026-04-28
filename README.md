@@ -14,7 +14,13 @@ Skills are reusable, self-contained instructions that give Claude specialized ca
 
 Scaffold a complete, deployable Power Apps Code App from a short interactive intake. Generates the full React + TypeScript + Vite + Tailwind skeleton, wires up SharePoint / Office 365 Users / Outlook connectors, and walks you through `pac auth → npm run setup → npm run connect → npm run push`. Encodes the silent-failure gotchas around SharePoint Choice and Person field writes that cost real engineering hours to discover.
 
-> **Drop screenshots here:** add preview images to [powerapps-codeapp-setup/examples/](powerapps-codeapp-setup/examples/) to show the kind of apps this skill produces (App Inventory Tracker, Approval Tracker, etc.).
+**Reference apps built with these patterns:**
+
+![App Inventory dashboard](powerapps-codeapp-setup/examples/PowerApp-AppInventory.png)
+
+![Approval Tracker dashboard](powerapps-codeapp-setup/examples/ApprovalApp-Dashboard.png)
+
+> **Reference repo:** [github.com/Krupesh9/CodeApps](https://github.com/Krupesh9/CodeApps) — source for App Inventory Tracker and Approval Tracker.
 
 [→ Open the skill](powerapps-codeapp-setup/)
 
