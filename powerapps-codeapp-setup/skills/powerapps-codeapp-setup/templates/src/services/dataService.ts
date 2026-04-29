@@ -55,6 +55,10 @@ function spToRecord(sp: MyListRead): MyRecord {
     description: (sp as any).Description ?? '',
     // Choice fields — extract .Value
     status: (sp as any).Status?.Value ?? '',
+    // Lookup fields → Config table — keep both the ID (for writes) and label (for display)
+    // Replace 'PriorityId' below with whatever Lookup column you have (e.g., StatusId, BusUnitId)
+    priorityId: (sp as any).Priority?.Id ?? null,
+    priorityLabel: (sp as any).Priority?.Value ?? '',
     // Person fields — extract .DisplayName and .Email
     assignee: (sp as any).Assignee?.DisplayName ?? '',
     assigneeEmail: (sp as any).Assignee?.Email ?? '',
@@ -80,6 +84,18 @@ function buildPayload(
   // Choice fields — MUST be { Value: "..." } objects on UPDATE
   if (record.status) p.Status = { Value: record.status };
 
+  // Lookup fields (single) — MUST be the lookup target's ID, not the value
+  // Field name on write = column name + 'Id' suffix
+  if (record.priorityId !== undefined && record.priorityId !== null) {
+    p.PriorityId = record.priorityId;
+  }
+
+  // Multi-Lookup example (uncomment + customize when you have one):
+  // if (record.tagIds !== undefined) {
+  //   p['TagsId@odata.type'] = '#Collection(Edm.Int32)';
+  //   p.TagsId = record.tagIds;  // [12, 34, 56]
+  // }
+
   // Person fields — only @odata.type + Claims are writable
   if (record.assigneeEmail) {
     p.Assignee = {
@@ -88,11 +104,19 @@ function buildPayload(
     };
   }
 
+  // Multi-Person example (uncomment + customize):
+  // if (record.stakeholderEmails !== undefined) {
+  //   p['Stakeholders@odata.type'] = '#Collection(Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser)';
+  //   p['Stakeholders#Claims'] = record.stakeholderEmails.map((e) => `i:0#.f|membership|${e}`);
+  // }
+
   return p;
 }
 
 // ── Field selection for queries ──────────────────────────────────────────────
-const SELECT = ['ID', 'Title', 'Description', 'Status', 'Assignee', 'DueDate', 'Created', 'Modified'];
+// Note: Lookup column names appear plain in `select` (e.g., 'Priority'), but the
+// Read shape will be `{ Id, Value }`. The corresponding Write field is 'PriorityId'.
+const SELECT = ['ID', 'Title', 'Description', 'Status', 'Priority', 'Assignee', 'DueDate', 'Created', 'Modified'];
 
 async function spGetAll(): Promise<MyRecord[]> {
   const r = await withTimeout(

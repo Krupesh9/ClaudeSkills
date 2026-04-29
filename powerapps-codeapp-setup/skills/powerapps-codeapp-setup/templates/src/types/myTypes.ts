@@ -7,6 +7,9 @@ export interface MyRecord {
   description?: string;
   // Choice fields — store the .Value as a plain string at app level
   status: string;
+  // Lookup fields (→ Config table) — keep the ID for writes, label for display
+  priorityId: number | null;
+  priorityLabel?: string;
   // Person fields — store both display name and email
   assignee?: string;
   assigneeEmail?: string;
