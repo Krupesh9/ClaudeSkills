@@ -10,17 +10,14 @@ Encodes the silent-failure gotchas around SharePoint Choice and Person field wri
 
 ## Quick install
 
-> ⚠ **`/plugin ...` is a Claude Code slash command — type it INSIDE Claude Code, not in PowerShell, bash, cmd, or zsh.** If you see `The term '/plugin' is not recognized as a name of a cmdlet`, you typed it in the wrong place. Run `claude` in your terminal first to open Claude Code, then enter the slash command at the Claude Code prompt.
+> ⚠ **`/plugin ...` is a Claude Code slash command — it only works INSIDE Claude Code (chat panel or REPL), not in PowerShell, bash, cmd, or zsh.**
+>
+> - **VS Code extension users:** type the command as a chat message in the Claude Code panel. No terminal needed.
+> - **Standalone CLI users:** run `claude` in your terminal first to open the REPL, then enter the command at the Claude Code prompt. If `claude` isn't recognized, install it: `npm install -g @anthropic-ai/claude-code` (requires Node.js).
 
 ### Option 1 — Marketplace (recommended)
 
-In your shell, open Claude Code:
-
-```bash
-claude
-```
-
-Then at the Claude Code prompt, run:
+In Claude Code (chat panel or REPL), run:
 
 ```text
 /plugin marketplace add Krupesh9/ClaudeSkills

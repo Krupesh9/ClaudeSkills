@@ -8,25 +8,31 @@ Each plugin packages a Claude [skill](https://docs.claude.com/en/docs/claude-cod
 
 ## Install the marketplace
 
-> ⚠ **`/plugin ...` is a Claude Code slash command — type it INSIDE the Claude Code REPL, not in PowerShell or bash.**
->
-> If you see `The term '/plugin' is not recognized as a name of a cmdlet`, you typed it in the wrong place. Open Claude Code first by running `claude` in your terminal, then enter the slash command at the Claude Code prompt.
+> ⚠ **`/plugin ...` is a Claude Code slash command — it only works INSIDE Claude Code, not in PowerShell, bash, cmd, or zsh.**
 
-**Step 1.** Open Claude Code in any terminal:
+### Where to type the slash command
 
-```bash
-claude
+| You're using...                     | What to do                                                                                                  |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| **VS Code extension**               | Just type the command **as a chat message** to Claude in the Claude Code panel. No terminal needed.         |
+| **Standalone Claude Code CLI**      | Run `claude` in your terminal first to open the REPL, then type the command at the Claude Code prompt.      |
+| **Claude Code in JetBrains / web**  | Same as VS Code — type the command in the chat panel.                                                       |
+
+### Don't have the CLI installed?
+
+If `claude` isn't recognized in your terminal, you don't have the standalone CLI. **You don't need it if you're using the VS Code extension** — just chat with Claude in the panel. To install the CLI anyway:
+
+```powershell
+# Cross-platform via npm (requires Node.js — install from nodejs.org first if needed)
+npm install -g @anthropic-ai/claude-code
 ```
 
-**Step 2.** At the Claude Code prompt (it ends with `>` or shows `Human:`), enter:
+Or download the official installer from [claude.com/download](https://claude.com/download).
+
+### The two slash commands
 
 ```text
 /plugin marketplace add Krupesh9/ClaudeSkills
-```
-
-**Step 3.** Then install any plugin from this marketplace:
-
-```text
 /plugin install powerapps-codeapp-setup@claudeskills
 ```
 

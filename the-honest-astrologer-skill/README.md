@@ -28,15 +28,12 @@ You get the full reading + reasoning experience. The Python chart scripts only r
 
 For real chart computation (pyswisseph + Lahiri ayanamsa) and PNG/PDF rendering.
 
-> ⚠ **`/plugin ...` is a Claude Code slash command — type it INSIDE Claude Code, not in PowerShell, bash, cmd, or zsh.** If you see `The term '/plugin' is not recognized as a name of a cmdlet`, you typed it in the wrong place. Open Claude Code first.
+> ⚠ **`/plugin ...` is a Claude Code slash command — only works INSIDE Claude Code (chat panel or REPL), not in PowerShell, bash, cmd, or zsh.**
+>
+> - **VS Code extension users:** type the command as a chat message in the Claude Code panel. No terminal needed.
+> - **Standalone CLI users:** run `claude` in your terminal first to open the REPL. If `claude` isn't recognized, install it: `npm install -g @anthropic-ai/claude-code` (requires Node.js).
 
-In your shell:
-
-```bash
-claude
-```
-
-Then at the Claude Code prompt:
+In Claude Code (chat panel or REPL):
 
 ```text
 /plugin marketplace add Krupesh9/ClaudeSkills
