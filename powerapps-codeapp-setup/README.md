@@ -10,21 +10,26 @@ Encodes the silent-failure gotchas around SharePoint Choice and Person field wri
 
 ## Quick install
 
+> ⚠ **`/plugin ...` is a Claude Code slash command — type it INSIDE Claude Code, not in PowerShell, bash, cmd, or zsh.** If you see `The term '/plugin' is not recognized as a name of a cmdlet`, you typed it in the wrong place. Run `claude` in your terminal first to open Claude Code, then enter the slash command at the Claude Code prompt.
+
 ### Option 1 — Marketplace (recommended)
 
+In your shell, open Claude Code:
+
 ```bash
-# In Claude Code:
+claude
+```
+
+Then at the Claude Code prompt, run:
+
+```text
 /plugin marketplace add Krupesh9/ClaudeSkills
 /plugin install powerapps-codeapp-setup@claudeskills
 ```
 
-### Option 2 — Direct from GitHub
+> **About the URL form:** Use the org/repo shorthand `Krupesh9/ClaudeSkills` — **not** the GitHub web URL `https://github.com/Krupesh9/ClaudeSkills/tree/main/powerapps-codeapp-setup`. The `tree/main` path is a browser view, not a Git endpoint, and `/plugin marketplace add` will fail with "repository not found".
 
-```bash
-/plugin install https://github.com/Krupesh9/ClaudeSkills/tree/main/powerapps-codeapp-setup
-```
-
-### Option 3 — Manual (skill only, no plugin manager)
+### Option 2 — Manual (skill only, no plugin manager)
 
 ```bash
 # Clone and copy the skill folder into your skills dir

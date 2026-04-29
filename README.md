@@ -8,23 +8,29 @@ Each plugin packages a Claude [skill](https://docs.claude.com/en/docs/claude-cod
 
 ## Install the marketplace
 
-In Claude Code:
+> ⚠ **`/plugin ...` is a Claude Code slash command — type it INSIDE the Claude Code REPL, not in PowerShell or bash.**
+>
+> If you see `The term '/plugin' is not recognized as a name of a cmdlet`, you typed it in the wrong place. Open Claude Code first by running `claude` in your terminal, then enter the slash command at the Claude Code prompt.
+
+**Step 1.** Open Claude Code in any terminal:
 
 ```bash
+claude
+```
+
+**Step 2.** At the Claude Code prompt (it ends with `>` or shows `Human:`), enter:
+
+```text
 /plugin marketplace add Krupesh9/ClaudeSkills
 ```
 
-Then browse and install any plugin:
+**Step 3.** Then install any plugin from this marketplace:
 
-```bash
+```text
 /plugin install powerapps-codeapp-setup@claudeskills
 ```
 
-Or skip the marketplace and install a plugin directly from the repo:
-
-```bash
-/plugin install https://github.com/Krupesh9/ClaudeSkills/tree/main/powerapps-codeapp-setup
-```
+> **About the URL form:** Use the org/repo shorthand `Krupesh9/ClaudeSkills` — **not** the GitHub web URL `https://github.com/Krupesh9/ClaudeSkills/tree/main/...`. The `tree/main` path is a browser view, not a Git endpoint, and `/plugin marketplace add` will fail with "repository not found".
 
 ---
 
